@@ -8,3 +8,10 @@ module "network" {
 module "cognito" {
   source = "./cognito"
 }
+
+module "elb" {
+  source = "./elb"
+
+  vpc_id            = module.network.vpc_id
+  subnet_public_ids = module.network.subnet_public_ids
+}
