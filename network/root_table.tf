@@ -8,7 +8,7 @@ resource "aws_route_table" "route_table_public" {
   }
 
   tags = {
-    Name        = "route_table_public_${var.availability_zones[count.index]}"
+    Name = "route_table_public_${var.availability_zones[count.index]}"
   }
 }
 

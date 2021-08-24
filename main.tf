@@ -17,7 +17,7 @@ module "elb" {
 }
 
 module "ec2" {
-  source = "./ec2"
-
-  vpc_id = module.network.vpc_id
+  source    = "./ec2"
+  subnet_id = module.network.subnet_public_ids[0]
+  vpc_id    = module.network.vpc_id
 }

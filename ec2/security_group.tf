@@ -1,5 +1,5 @@
 resource "aws_security_group" "ec2_security_group" {
-  name = "ec2_security_group"
+  name   = "ec2_security_group"
   vpc_id = var.vpc_id
 
   ingress {
