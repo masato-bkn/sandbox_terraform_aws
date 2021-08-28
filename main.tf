@@ -14,6 +14,7 @@ module "elb" {
 
   vpc_id            = module.network.vpc_id
   subnet_public_ids = module.network.subnet_public_ids
+  web_server_id     = module.ec2.web_server_id
 }
 
 module "ec2" {
