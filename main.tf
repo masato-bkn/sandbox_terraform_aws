@@ -22,3 +22,7 @@ module "ec2" {
   subnet_id = module.network.subnet_public_ids[0]
   vpc_id    = module.network.vpc_id
 }
+
+module "ecs" {
+  source = "./ecs"
+}
