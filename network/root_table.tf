@@ -17,3 +17,18 @@ resource "aws_route_table_association" "route_table_association_public" {
   route_table_id = aws_route_table.route_table_public[count.index].id
   subnet_id      = aws_subnet.subnet_public[count.index].id
 }
+
+resource "aws_route_table" "route_table_private" {
+  count  = length(var.availability_zones)
+  vpc_id = aws_vpc.sample_vpc.id
+
+  tags = {
+    Name = "route_table_private_${var.availability_zones[count.index]}"
+  }
+}
+
+resource "aws_route_table_association" "route_table_association_private" {
+  count          = length(var.availability_zones)
+  route_table_id = aws_route_table.route_table_public[count.index].id
+  subnet_id      = aws_subnet.subnet_private[count.index].id
+}
