@@ -24,7 +24,9 @@ module "ec2" {
 }
 
 module "ecs" {
-  source = "./ecs"
+  source               = "./ecs"
+  vpc_id               = module.network.vpc_id
+  elb_ecurity_group_id = module.elb.elb_ecurity_group_id
 }
 
 module "ecr" {
