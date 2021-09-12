@@ -32,3 +32,7 @@ module "ecs" {
 module "ecr" {
   source = "./ecr"
 }
+
+module "iam" {
+  source = "./iam"
+}
