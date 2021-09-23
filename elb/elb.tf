@@ -8,11 +8,15 @@ resource "aws_lb" "elb_webserver" {
 }
 
 resource "aws_lb_target_group" "elb_webserver_target_group" {
-  name     = "elb-webserver-target-group"
-  port     = 80
-  protocol = "HTTP"
-  vpc_id   = var.vpc_id
+  name        = "elb-webserver-target-group"
+  port        = 80
+  protocol    = "HTTP"
+  vpc_id      = var.vpc_id
   target_type = "ip"
+
+  health_check {
+    path = "/"
+  }
 }
 
 # resource "aws_lb_target_group_attachment" "elb_webserver_target_group_attachment" {
