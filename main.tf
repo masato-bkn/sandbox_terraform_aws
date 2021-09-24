@@ -33,6 +33,13 @@ module "ecr" {
   source = "./ecr"
 }
 
+module "rds" {
+  source               = "./rds"
+  subnet_private_ids   = module.network.subnet_private_ids
+  vpc_id               = module.network.vpc_id
+  ecs_ecurity_group_id = module.ecs.ecs_ecurity_group_id
+}
+
 module "iam" {
   source = "./iam"
 }
